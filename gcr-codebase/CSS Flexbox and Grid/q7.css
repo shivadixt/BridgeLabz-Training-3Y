@@ -1,0 +1,97 @@
+/* Basic page styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+    /* Flexbox centers the animation horizontally and vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0b1329;
+    color: #f8fafc;
+}
+
+.loader-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Loading animation container */
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* Common styling for all three circles */
+.circle {
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+
+    /* Infinite up-and-down animation */
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* Delay for the first circle */
+.circle1 {
+    animation-delay: 0s;
+}
+
+/* Delay for the second circle */
+.circle2 {
+    animation-delay: 0.2s;
+}
+
+/* Delay for the third circle */
+.circle3 {
+    animation-delay: 0.4s;
+}
+
+.loader-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+}
+
+/* Controls the up-and-down movement */
+@keyframes loading {
+    0% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-25px);
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.9);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+}

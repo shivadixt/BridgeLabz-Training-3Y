@@ -1,0 +1,187 @@
+/* Basic page styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background-color: #0b1329;
+    color: #f8fafc;
+}
+
+/* Main dashboard uses CSS Grid */
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+
+    /* Sidebar + main content */
+    grid-template-columns: 240px 1fr;
+
+    /* Header + content */
+    grid-template-rows: auto 1fr;
+}
+
+/* Header spans across all columns */
+header {
+    grid-column: 1 / -1;
+    padding: 22px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #0f172a;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar */
+aside {
+    padding: 30px 20px;
+    background-color: #0f172a;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+aside h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #64748b;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+/* Vertical navigation */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    transition: all 0.25s ease;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+/* Main content */
+main {
+    padding: 40px;
+    display: grid;
+
+    /* Two equal columns using fractional units */
+    grid-template-columns: repeat(2, 1fr);
+
+    /* Spacing between boxes */
+    gap: 25px;
+}
+
+/* Dashboard boxes */
+.box {
+    min-height: 180px;
+    padding: 30px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.box .box-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.box h2 {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.box p {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin-bottom: 6px;
+}
+
+.box .sub {
+    font-size: 0.85rem;
+    color: #38bdf8;
+}
+
+/* One box spans two columns */
+.wide-box {
+    grid-column: span 2;
+}
+
+/* Hover effect */
+.box:hover {
+    transform: translateY(-6px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    header {
+        grid-column: 1;
+        justify-content: center;
+    }
+
+    aside {
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .wide-box {
+        grid-column: span 1;
+    }
+}

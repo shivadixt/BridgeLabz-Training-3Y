@@ -1,0 +1,246 @@
+/* Basic page styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #0b1329;
+    color: #f8fafc;
+}
+
+/* Main blog layout using CSS Grid */
+.blog-layout {
+    min-height: 100vh;
+
+    display: grid;
+
+    /* Sidebar and main content columns */
+    grid-template-columns: 260px 1fr;
+
+    /* Header, content and footer rows */
+    grid-template-rows: auto 1fr auto;
+
+    /* Required spacing between grid items */
+    gap: 25px;
+
+    padding: 25px 8%;
+
+    /* Structure the layout using grid-template-areas */
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+/* Header */
+header {
+    grid-area: header;
+
+    padding: 22px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #0f172a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+header nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #38bdf8;
+}
+
+/* Sidebar */
+aside {
+    grid-area: sidebar;
+
+    padding: 30px 22px;
+
+    background-color: #1e293b;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+aside h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-left: 3px solid #38bdf8;
+    padding-left: 10px;
+}
+
+aside ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+aside a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: block;
+    transition: all 0.25s ease;
+}
+
+aside a:hover {
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+/* Main content */
+main {
+    grid-area: main;
+
+    display: grid;
+
+    /* Two blog posts side-by-side */
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+/* Blog posts */
+article {
+    padding: 30px;
+
+    background-color: #1e293b;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-6px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.category-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 4px 10px;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+article h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+article p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+
+    padding: 20px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0f172a;
+    border-radius: 12px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Responsive layout below 850px */
+@media (max-width: 850px) {
+    .blog-layout {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto auto 1fr auto;
+
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+        padding: 15px 4%;
+    }
+
+    /* Blog posts remain side-by-side on medium screens */
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 550px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,109 @@
+/* Basic page styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding: 50px 8%;
+    background-color: #0b1329;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+.header-banner {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-banner h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-banner .sub {
+    color: #94a3b8;
+    font-size: 1.05rem;
+}
+
+/* CSS Grid with 4 equal columns on desktop */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product cards */
+.product-card {
+    min-height: 190px;
+    padding: 28px 20px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card .icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Product name */
+.product-card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Product price */
+.product-card p {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #38bdf8;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 30px 5%;
+    }
+
+    .header-banner h1 {
+        font-size: 1.9rem;
+    }
+}
