@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tech Chronicle - Shiva Dixit Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            color: #1e293b;
+            font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            padding: 20px 0;
+        }
+
+        .newspaper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 50px 60px;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+        .newspaper-header {
+            text-align: center;
+            border-bottom: 4px double #0f172a;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            column-span: all;
+        }
+
+        .newspaper-tagline {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #64748b;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        .newspaper h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 10px 0;
+            color: #0f172a;
+        }
+
+        .headline-section {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #0f172a;
+            padding-bottom: 20px;
+            column-span: all;
+        }
+
+        .headline-section h2 {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .byline {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.95rem;
+            color: #475569;
+            font-style: italic;
+        }
+
+        .byline strong {
+            color: #0284c7;
+            font-style: normal;
+        }
+
+        .article {
+            column-count: 3;
+            column-gap: 35px;
+            column-rule: 1px solid #e2e8f0;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .article p {
+            margin-bottom: 22px;
+            color: #334155;
+        }
+
+        .article p:first-of-type::first-letter {
+            font-family: 'Times New Roman', serif;
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: #0f172a;
+            float: left;
+            line-height: 0.85;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .article-image-box {
+            float: left;
+            width: 100%;
+            margin-bottom: 18px;
+            border: 1px solid #cbd5e1;
+            padding: 6px;
+            background-color: #f8fafc;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-caption {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 6px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .pull-quote {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0284c7;
+            border-top: 2px solid #0284c7;
+            border-bottom: 2px solid #0284c7;
+            padding: 15px 0;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 950px) {
+            .newspaper {
+                padding: 30px 25px;
+                margin: 10px;
+            }
+
+            .newspaper h1 {
+                font-size: 2.8rem;
+            }
+
+            .headline-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .article {
+                column-count: 2;
+                column-gap: 25px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .newspaper h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .newspaper-tagline {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .headline-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .article {
+                column-count: 1;
+                column-gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="newspaper">
+
+        <div class="newspaper-header">
+            <div class="newspaper-tagline">
+                <span>Vol. XXVI No. 03</span>
+                <span>The Global Tech & Engineering Journal</span>
+                <span>Mathura • Auraiya • March 2026</span>
+            </div>
+
+            <h1>THE TECH CHRONICLE</h1>
+        </div>
+
+        <div class="headline-section">
+            <h2>FinTwin & WebRTC: Computer Science Student Shiva Dixit Architects Resilient Digital Systems</h2>
+            <p class="byline">By Special Tech Correspondent • Featuring <strong>Shiva Dixit</strong> (G.L.A University)</p>
+        </div>
+
+        <div class="article">
+
+            <div class="article-image-box">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="FinTwin Architecture" class="article-image">
+                <div class="img-caption">FinTwin financial digital twin architecture with 5 microservices.</div>
+            </div>
+
+            <p>
+                In an era where distributed systems and ultra-low latency determine the efficiency of global industries, software engineering undergraduate Shiva Dixit from G.L.A University, Mathura, is making waves with cutting-edge architectural implementations.
+            </p>
+
+            <p>
+                His flagship initiative, FinTwin, represents a state-of-the-art financial digital twin platform. Composed of five autonomous FastAPI microservices—Account, Transaction, Twin Engine, Risk Analysis, and Notification—FinTwin processes complex live simulations without mutating underlying financial ledgers.
+            </p>
+
+            <p>
+                "The core objective behind FinTwin is enabling high-velocity financial risk exploration through stateless computation," explains Dixit. By integrating Redis in-memory caching and JWT security, FinTwin maintains sub-millisecond query performance across distributed endpoints.
+            </p>
+
+            <div class="pull-quote">
+                "Modern distributed systems must marry cloud scalability with real-time peer-to-peer resilience."
+            </div>
+
+            <p>
+                Beyond backend microservices, Dixit has pushed the boundaries of real-time web gaming with his Polygon Game project. Built using native HTML5 Canvas and vanilla JavaScript, the game leverages WebRTC peer-to-peer data channels for seamless, multi-user polygon battlefields.
+            </p>
+
+            <p>
+                To coordinate peer connectivity across diverse NAT and firewall topographies, Dixit engineered a dedicated Node.js signaling server deployed continuously on Render with custom render.yaml automation and TURN server integration.
+            </p>
+
+            <p>
+                Complementing his practical project leadership, Dixit is an AWS Academy Graduate certified in Cloud Foundations. His hands-on proficiency spans Amazon EC2, S3, IAM, AWS Lambda serverless functions, and CloudFormation infrastructure-as-code automation.
+            </p>
+
+            <p>
+                With a strong academic foundation (B.Tech CSE, CGPA 7.05) and secondary schooling from Shemford Futuristic K12 School (76%), Dixit continues to explore containerized architectures with Docker Compose, Kafka event streaming, and Kubernetes deployment on AWS EKS.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 The Tech Chronicle • Written & Architected by Shiva Dixit | G.L.A University, Mathura</p>
+    </footer>
+
+</body>
+
+</html>

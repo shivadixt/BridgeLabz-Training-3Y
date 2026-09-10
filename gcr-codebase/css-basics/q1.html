@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Dixit - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 70px;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5% 8%;
+            gap: 40px;
+        }
+
+        .bio {
+            width: 55%;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bio h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .bio h2 span {
+            color: #38bdf8;
+        }
+
+        .bio p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .button-secondary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #38bdf8;
+        }
+
+        .profile {
+            width: 35%;
+            text-align: center;
+        }
+
+        .avatar-box {
+            width: 260px;
+            height: 260px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            padding: 6px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+        }
+
+        .avatar-box .inner {
+            width: 100%;
+            height: 100%;
+            background-color: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #38bdf8;
+        }
+
+        .avatar-box .inner span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .about, .projects-section, .contact {
+            width: 84%;
+            margin: 40px auto;
+            padding: 3rem;
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #f8fafc;
+            border-left: 4px solid #38bdf8;
+            padding-left: 15px;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .info-card {
+            background-color: rgba(15, 23, 42, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-card h4 {
+            color: #38bdf8;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background-color: rgba(15, 23, 42, 0.6);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .project-card ul {
+            padding-left: 20px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .project-card li {
+            margin-bottom: 6px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 220px;
+            background-color: rgba(15, 23, 42, 0.6);
+            padding: 18px 22px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        .contact-item a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            min-height: 70px;
+            background-color: #0b1120;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .bio {
+                width: 100%;
+            }
+
+            .button-group {
+                justify-content: center;
+            }
+
+            .profile {
+                width: 100%;
+            }
+
+            .avatar-box {
+                width: 180px;
+                height: 180px;
+            }
+
+            .about, .projects-section, .contact {
+                width: 92%;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header>
+            <h1>Shiva Dixit</h1>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+
+            <section id="home" class="hero">
+                <div class="bio">
+                    <span class="badge">AWS Certified • Cloud & Full Stack</span>
+                    <h2>Hello, I'm <span>Shiva Dixit</span> 👋</h2>
+
+                    <p>
+                        B.Tech Computer Science & Engineering student at G.L.A University, Mathura. 
+                        Passionate about Cloud Computing (AWS), Microservices, FastAPI, Python, Docker, 
+                        and building high-performance web applications.
+                    </p>
+
+                    <div class="button-group">
+                        <a href="#contact" class="button">Get In Touch</a>
+                        <a href="#projects" class="button-secondary">View Projects</a>
+                    </div>
+                </div>
+
+                <div class="profile">
+                    <div class="avatar-box">
+                        <div class="inner">
+                            SD
+                            <span>Shiva Dixit</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="about">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    I am an aspiring software engineer and AWS Academy Cloud Foundations graduate with hands-on experience in cloud infrastructure, containerization, microservice architectures, and modern web technologies.
+                </p>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🎓 Education</h4>
+                        <p><strong>G.L.A University</strong>, Mathura, UP<br>B.Tech in CSE (Aug 2024 – May 2028)<br>CGPA: 7.05</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🏫 Schooling</h4>
+                        <p><strong>Shemford Futuristic K12 School</strong>, Auraiya, UP<br>Intermediate (2024)<br>Percentage: 76%</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>☁️ Certification</h4>
+                        <p><strong>AWS Academy Graduate</strong><br>Cloud Foundations (Mar 2026)<br>EC2, S3, IAM, Lambda, CloudFormation, CloudFront</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects-section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-list">
+                    <div class="project-card">
+                        <h3>FinTwin</h3>
+                        <div class="tech-stack">Python, FastAPI, Flask, PostgreSQL, React, Docker, Redis, Nginx</div>
+                        <ul>
+                            <li>Microservices-based financial digital twin system with 5 independent FastAPI services.</li>
+                            <li>Engineered stateless Digital Twin Engine executing live simulations & risk computing.</li>
+                            <li>JWT authentication, Redis caching, Kafka-based event-driven architecture, and AWS EKS ready.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Polygon Game</h3>
+                        <div class="tech-stack">HTML5 Canvas, CSS, JavaScript, WebRTC, Node.js</div>
+                        <ul>
+                            <li>Real-time multiplayer browser-based polygon shooting game with WebRTC peer-to-peer communication.</li>
+                            <li>Node.js signaling server handling room creation, matchmaking, and TURN server integration.</li>
+                            <li>Deployed signaling infrastructure on Render with continuous deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2 class="section-title">Contact & Profiles</h2>
+                <p>Feel free to reach out for collaborations or opportunities!</p>
+                <div class="contact-links">
+                    <div class="contact-item">
+                        <span>📧 Email</span>
+                        <a href="mailto:shivadixit0123@gmail.com">shivadixit0123@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞 Phone</span>
+                        <a href="tel:+918218071428">+91-8218071428</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼 LinkedIn</span>
+                        <a href="https://linkedin.com/in/shiva-dixit-488533308" target="_blank">shiva-dixit-488533308</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>🐙 GitHub</span>
+                        <a href="https://github.com/shivadixit" target="_blank">github.com/shivadixit</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>© 2026 Shiva Dixit | B.Tech CSE, G.L.A University | All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

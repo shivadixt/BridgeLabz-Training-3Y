@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTwin Cloud Platform - Pricing Plans | Shiva Dixit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #0b1329;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .container h1 span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 50px;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            flex: 1;
+            min-width: 290px;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            background-color: #1e293b;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            text-align: left;
+        }
+
+        .plan:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .plan h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .plan-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #94a3b8;
+        }
+
+        .plan ul {
+            list-style: none;
+            margin-bottom: 35px;
+            flex-grow: 1;
+        }
+
+        .plan li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan li span.check {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: block;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* Popular / Recommended Tier */
+        .popular {
+            border: 2px solid #38bdf8;
+            background: linear-gradient(180deg, #1e293b 0%, #172554 100%);
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+        }
+
+        .popular:hover {
+            transform: scale(1.05) translateY(-6px);
+            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.3);
+        }
+
+        .popular-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #0b1329;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+        }
+
+        .popular .btn {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #0b1329;
+            border: none;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+        }
+
+        .popular .btn:hover {
+            background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+            color: #0b1329;
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .footer-note {
+            margin-top: 50px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .popular {
+                transform: none;
+            }
+
+            .popular:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Choose Your <span>Cloud Plan</span></h1>
+        <p class="subtitle">
+            Scale your microservices, digital twin simulations, and WebRTC streaming instances with Shiva Dixit's cloud architecture plans.
+        </p>
+
+        <!-- Pricing Plans -->
+        <div class="pricing-container">
+
+            <!-- DEVELOPER PLAN -->
+            <div class="plan">
+                <h2>Developer</h2>
+                <p class="plan-desc">Ideal for individual developers building local prototypes and small APIs.</p>
+
+                <div class="price">
+                    ₹499
+                    <span>/month</span>
+                </div>
+
+                <ul>
+                    <li><span class="check">✔</span> 5 Microservices (FastAPI)</li>
+                    <li><span class="check">✔</span> 10 GB S3 Cloud Storage</li>
+                    <li><span class="check">✔</span> Redis Cache (512 MB)</li>
+                    <li><span class="check">✔</span> Community & Email Support</li>
+                    <li><span class="check">✔</span> Basic JWT Auth</li>
+                </ul>
+
+                <a href="#" class="btn">Get Started</a>
+            </div>
+
+            <!-- PRO DIGITAL TWIN PLAN -->
+            <div class="plan popular">
+                <div class="popular-label">
+                    Most Popular
+                </div>
+
+                <h2>Pro Simulation</h2>
+                <p class="plan-desc">For production startups deploying digital twins and event-driven architectures.</p>
+
+                <div class="price">
+                    ₹1,499
+                    <span>/month</span>
+                </div>
+
+                <ul>
+                    <li><span class="check">✔</span> 25 Microservices (FastAPI / Flask)</li>
+                    <li><span class="check">✔</span> 100 GB AWS S3 & CloudFront CDN</li>
+                    <li><span class="check">✔</span> Redis Cluster + Kafka Streaming</li>
+                    <li><span class="check">✔</span> Live Stateless Risk Engine</li>
+                    <li><span class="check">✔</span> Docker Compose & EKS Deployment</li>
+                    <li><span class="check">✔</span> Priority 24/7 Support</li>
+                </ul>
+
+                <a href="#" class="btn">Choose Pro</a>
+            </div>
+
+            <!-- ENTERPRISE PLAN -->
+            <div class="plan">
+                <h2>Enterprise</h2>
+                <p class="plan-desc">Dedicated cloud infrastructure with full AWS CloudFormation automation.</p>
+
+                <div class="price">
+                    ₹3,999
+                    <span>/month</span>
+                </div>
+
+                <ul>
+                    <li><span class="check">✔</span> Unlimited Containerized Services</li>
+                    <li><span class="check">✔</span> 1 TB Dedicated Cloud Storage</li>
+                    <li><span class="check">✔</span> Dedicated TURN / WebRTC Servers</li>
+                    <li><span class="check">✔</span> Custom Nginx Gateway Routing</li>
+                    <li><span class="check">✔</span> Infrastructure as Code (IaC)</li>
+                    <li><span class="check">✔</span> Dedicated Solutions Architect</li>
+                </ul>
+
+                <a href="#" class="btn">Contact Enterprise</a>
+            </div>
+
+        </div>
+
+        <p class="footer-note">
+            © 2026 FinTwin Infrastructure • Designed by Shiva Dixit (GLA University)
+        </p>
+
+    </div>
+
+</body>
+
+</html>

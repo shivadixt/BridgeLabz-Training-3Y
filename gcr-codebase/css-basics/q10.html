@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Dixit | Cloud Architect & Full Stack Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #0b1329;
+            color: #f8fafc;
+            line-height: 1.7;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(11, 19, 41, 0.92);
+            backdrop-filter: blur(12px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            outline: 1.5px solid rgba(56, 189, 248, 0.3);
+            outline-offset: 4px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .header nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .header nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .header nav a:hover {
+            color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 88vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            overflow: hidden;
+            padding: 60px 20px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(11, 19, 41, 0.8) 0%, rgba(11, 19, 41, 0.95) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            padding: 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #0b1329;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+            background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+        }
+
+        .hero-button-alt {
+            display: inline-block;
+            padding: 14px 32px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-button-alt:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 100px 8%;
+            background-color: #0f172a;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-text {
+            width: 55%;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .about-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .pill {
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .about-image {
+            width: 40%;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Services & Projects */
+        .services {
+            padding: 100px 8%;
+            background-color: #0b1329;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .services-subtitle {
+            color: #94a3b8;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            flex: 1;
+            min-width: 290px;
+            max-width: 360px;
+            background-color: #1e293b;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-align: left;
+        }
+
+        .service-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-box h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .service-box p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 90px 8%;
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 45px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            background-color: #1e293b;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .contact p {
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            border: 1.5px solid #334155;
+            border-radius: 8px;
+            outline: none;
+            background-color: #0b1329;
+            color: #f8fafc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+        }
+
+        form textarea {
+            resize: vertical;
+        }
+
+        form button {
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #0b1329;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+        }
+
+        form button:hover {
+            background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #070d1e;
+            color: #64748b;
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 850px) {
+            .header {
+                height: auto;
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 60px 6%;
+            }
+
+            .about-text,
+            .about-image {
+                width: 100%;
+            }
+
+            .service-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-box {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            SHIVA DIXIT
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects & Tech</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="hero-badge">AWS Academy Graduate • Cloud Foundations</span>
+            <h1>Engineering Resilient Distributed & Real-Time Systems</h1>
+            <p>
+                Hi, I'm Shiva Dixit. B.Tech Computer Science student at G.L.A University, Mathura. 
+                I specialize in AWS Cloud Architecture, FastAPI microservices, stateless simulation engines, and WebRTC real-time networking.
+            </p>
+
+            <div class="hero-btn-group">
+                <a href="#projects" class="hero-button">Explore Projects</a>
+                <a href="#contact" class="hero-button-alt">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h2>About Shiva Dixit</h2>
+            <p>
+                I am currently pursuing my B.Tech in Computer Science and Engineering at G.L.A University, Mathura (Aug 2024 – May 2028, CGPA: 7.05), following my schooling at Shemford Futuristic K12 School, Auraiya (76%).
+            </p>
+            <p>
+                As an AWS Academy Cloud Foundations graduate, I have hands-on expertise with Amazon EC2, S3, IAM, Lambda, CloudFormation infrastructure-as-code, and CloudFront. I love transforming complex distributed problems into clean, high-performance software.
+            </p>
+
+            <div class="about-badges">
+                <span class="pill">☁️ AWS Certified</span>
+                <span class="pill">🐍 Python & FastAPI</span>
+                <span class="pill">🐳 Docker & Redis</span>
+                <span class="pill">⚡ WebRTC & Canvas</span>
+                <span class="pill">🐘 PostgreSQL</span>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Software Architecture">
+        </div>
+    </section>
+
+    <!-- Services / Featured Projects -->
+    <section id="projects" class="services">
+        <h2>Core Systems & Projects</h2>
+        <p class="services-subtitle">Key engineering architectures and platforms built by Shiva Dixit</p>
+
+        <div class="service-container">
+
+            <!-- FinTwin -->
+            <div class="service-box">
+                <div class="service-icon">⚡</div>
+                <h3>FinTwin Microservices</h3>
+                <p>
+                    A digital twin system with 5 FastAPI services (Account, Transaction, Twin Engine, Risk Analysis, Notification), Nginx gateway, stateless risk calculations, and Redis caching.
+                </p>
+            </div>
+
+            <!-- Polygon Game -->
+            <div class="service-box">
+                <div class="service-icon">🎮</div>
+                <h3>Polygon Game (WebRTC)</h3>
+                <p>
+                    Real-time multiplayer browser shooting game utilizing HTML5 Canvas and vanilla JavaScript with WebRTC peer-to-peer data channels and a Node.js signaling server on Render.
+                </p>
+            </div>
+
+            <!-- AWS Cloud Architecture -->
+            <div class="service-box">
+                <div class="service-icon">☁️</div>
+                <h3>Cloud Foundations (AWS)</h3>
+                <p>
+                    Infrastructure-as-code with AWS CloudFormation, automated container orchestration on EKS with Docker Compose, IAM security, S3 storage, and serverless Lambda routines.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Contact & Connect</h2>
+            <p>
+                Feel free to message me regarding engineering roles, cloud solutions, or collaboration.
+            </p>
+
+            <form>
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <input type="text" placeholder="Subject / Topic" required>
+                <textarea rows="4" placeholder="Your Message..." required></textarea>
+                <button type="submit">Send Message 🚀</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Shiva Dixit • B.Tech CSE, G.L.A University, Mathura • All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

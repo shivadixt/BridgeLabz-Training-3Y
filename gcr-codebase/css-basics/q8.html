@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Cloud Console | Shiva Dixit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #0b1329;
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        /* Fixed Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-badge {
+            font-size: 0.8rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .user-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            min-height: calc(100vh - 70px);
+            background-color: #0f172a;
+            color: white;
+            padding: 30px 18px;
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .sidebar h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            margin-bottom: 20px;
+            padding-left: 12px;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sidebar nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #0b1329;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .page-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* KPI Content Boxes */
+        .content-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .box {
+            background-color: #1e293b;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .box-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .box h3 {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .box-icon {
+            font-size: 1.5rem;
+            padding: 8px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #f8fafc;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .box p:last-child {
+            color: #38bdf8;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* Systems Activity List */
+        .activity-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .activity-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h4 {
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .item-info span {
+            color: #94a3b8;
+            font-size: 0.82rem;
+        }
+
+        .status-pill {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        @media (max-width: 850px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                padding: 15px;
+            }
+
+            .sidebar nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Header -->
+    <header>
+        <h1>⚡ Shiva Dixit Console</h1>
+
+        <div class="user-profile">
+            <span class="user-badge">AWS Academy Certified</span>
+            <div class="user-avatar">SD</div>
+        </div>
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <nav>
+                <a href="#" class="active">📊 Overview</a>
+                <a href="#">⚡ FinTwin Services</a>
+                <a href="#">🎮 Polygon Game WebRTC</a>
+                <a href="#">☁️ AWS Resources</a>
+                <a href="#">🐳 Docker Containers</a>
+                <a href="#">👤 Profile & Credentials</a>
+                <a href="#">⚙️ Console Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div class="page-header">
+                <h2>Welcome back, Shiva Dixit 👋</h2>
+                <p>Real-time telemetry and microservices health status for your portfolio & projects.</p>
+            </div>
+
+            <!-- Content Boxes -->
+            <div class="content-boxes">
+
+                <!-- Box 1 -->
+                <div class="box">
+                    <div class="box-top">
+                        <h3>FinTwin Microservices</h3>
+                        <div class="box-icon">⚡</div>
+                    </div>
+                    <p class="number">5 / 5</p>
+                    <p>● All FastAPI instances healthy & routed via Nginx</p>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="box">
+                    <div class="box-top">
+                        <h3>WebRTC Peer Rooms</h3>
+                        <div class="box-icon">🎮</div>
+                    </div>
+                    <p class="number">12</p>
+                    <p>● Polygon Game signaling active on Render</p>
+                </div>
+
+                <!-- Box 3 -->
+                <div class="box">
+                    <div class="box-top">
+                        <h3>AWS Academy Badge</h3>
+                        <div class="box-icon">☁️</div>
+                    </div>
+                    <p class="number">Certified</p>
+                    <p>● Cloud Foundations (EC2, S3, Lambda, IAM)</p>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="box">
+                    <div class="box-top">
+                        <h3>Academic CGPA</h3>
+                        <div class="box-icon">🎓</div>
+                    </div>
+                    <p class="number">7.05</p>
+                    <p>● G.L.A University, Mathura (CSE 2024–28)</p>
+                </div>
+
+            </div>
+
+            <!-- Systems Activity -->
+            <div class="activity-card">
+                <h3>System Services & Deployments</h3>
+
+                <div class="activity-item">
+                    <div class="item-info">
+                        <h4>FinTwin Digital Twin Engine</h4>
+                        <span>FastAPI • Stateless Risk Simulation & Redis Cache</span>
+                    </div>
+                    <span class="status-pill">Active (Port 8000)</span>
+                </div>
+
+                <div class="activity-item">
+                    <div class="item-info">
+                        <h4>FinTwin Nginx Gateway</h4>
+                        <span>Reverse proxy routing 5 microservices with JWT verification</span>
+                    </div>
+                    <span class="status-pill">Routing OK</span>
+                </div>
+
+                <div class="activity-item">
+                    <div class="item-info">
+                        <h4>Polygon Game Signaling Server</h4>
+                        <span>Node.js WebRTC Offer/Answer exchange on Render</span>
+                    </div>
+                    <span class="status-pill">Online (render.yaml)</span>
+                </div>
+
+                <div class="activity-item">
+                    <div class="item-info">
+                        <h4>AWS CloudFormation Stack</h4>
+                        <span>Automated infrastructure template for EKS container cluster</span>
+                    </div>
+                    <span class="status-pill">Provisioned</span>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

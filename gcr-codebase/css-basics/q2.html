@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaipur - The Pink City | Shiva Dixit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: #2d1b1b;
+            background-color: #faf5f0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #7b2d3b, #591d28);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #f4b183;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #f4b183;
+            color: #591d28;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(244, 177, 131, 0.4);
+        }
+
+        section {
+            width: 100%;
+            min-height: 380px;
+            padding: 80px 10%;
+            margin: 0;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .home-section {
+            background: linear-gradient(135deg, #ff9e79, #e56b6f, #7b2d3b);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-section h2 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .history-section {
+            background-color: #fff8f0;
+            border-top: 5px solid #e6a15c;
+            border-bottom: 5px solid #e6a15c;
+        }
+
+        .history-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #7b2d3b;
+        }
+
+        .places-section {
+            background: radial-gradient(circle at center, #fff2db, #f7ba8b, #a6445c);
+            color: #2d1b1b;
+        }
+
+        .places-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #4a1922;
+        }
+
+        .places {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .place-card {
+            background-color: #ffffff;
+            flex: 1;
+            min-width: 260px;
+            max-width: 320px;
+            padding: 30px 25px;
+            border: 2px solid #e6a15c;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(123, 45, 59, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(123, 45, 59, 0.25);
+            border-color: #7b2d3b;
+        }
+
+        .place-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #7b2d3b;
+            margin-bottom: 12px;
+        }
+
+        .place-card p {
+            font-size: 1.05rem;
+            color: #4a3838;
+        }
+
+        .culture-section {
+            background-color: #5c374c;
+            color: white;
+            border-top: 5px solid #f4b183;
+        }
+
+        .culture-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f4b183;
+        }
+
+        footer {
+            background-color: #1f1116;
+            color: #e2c0c7;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 1rem;
+            border-top: 3px solid #7b2d3b;
+        }
+
+        footer strong {
+            color: #f4b183;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .places {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .place-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .home-section h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Jaipur - The Pink City</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#history">History</a>
+            <a href="#places">Famous Places</a>
+            <a href="#culture">Culture</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="home" class="home-section">
+            <div class="content">
+                <h2>Welcome to Jaipur</h2>
+                <p>
+                    Jaipur is the capital city of Rajasthan and is popularly
+                    known as the Pink City. It is famous for its royal
+                    palaces, forts, colorful markets, and rich heritage.
+                </p>
+            </div>
+        </section>
+
+        <section id="history" class="history-section">
+            <div class="content">
+                <h2>History of Jaipur</h2>
+                <p>
+                    Jaipur was founded in 1727 by Maharaja Sawai Jai Singh II.
+                    It was one of India's earliest planned cities. The city
+                    is celebrated globally for its architectural symmetry, vast courtyards, and iconic terracotta pink walls.
+                </p>
+            </div>
+        </section>
+
+        <section id="places" class="places-section">
+            <div class="content">
+                <h2>Famous Places</h2>
+
+                <div class="places">
+                    <div class="place-card">
+                        <h3>Hawa Mahal</h3>
+                        <p>
+                            The "Palace of Winds", famous for its honeycomb facade with 953 intricate jharokhas (small casements).
+                        </p>
+                    </div>
+
+                    <div class="place-card">
+                        <h3>Amber Fort</h3>
+                        <p>
+                            A majestic hilltop fortress known for its artistic Hindu elements, grand ramparts, and Maota Lake reflections.
+                        </p>
+                    </div>
+
+                    <div class="place-card">
+                        <h3>City Palace</h3>
+                        <p>
+                            A stunning royal complex blending Rajput and Mughal architecture with courtyards, gardens, and rich museums.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="culture" class="culture-section">
+            <div class="content">
+                <h2>Culture of Jaipur</h2>
+                <p>
+                    Jaipur is renowned for traditional Rajasthani folk music, Ghoomar dance, blue pottery, block printing, and world-famous cuisine like Dal Baati Churma and Ghewar.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 About Jaipur | Curated & Designed with HTML & CSS by <strong>Shiva Dixit</strong> (G.L.A University)</p>
+    </footer>
+
+</body>
+
+</html>

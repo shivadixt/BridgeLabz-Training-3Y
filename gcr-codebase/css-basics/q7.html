@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Shiva Dixit - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #0b1329;
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .contact-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            background-color: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Left Side Info Panel */
+        .info-panel {
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-panel h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .info-panel p {
+            color: #e0f2fe;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #bae6fd;
+            display: block;
+        }
+
+        .contact-text a, .contact-text span {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Side Form */
+        .contact-form {
+            padding: 45px 40px;
+            background-color: #1e293b;
+        }
+
+        .contact-form h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .contact-form .form-subtitle {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background-color: #0f172a;
+            color: #f8fafc;
+            border: 1.5px solid #334155;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+            background-color: #0b1329;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #0b1329;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+        }
+
+        @media (max-width: 800px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .info-panel {
+                padding: 35px 25px;
+            }
+
+            .contact-form {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="contact-page">
+
+        <div class="contact-container">
+
+            <!-- Left Panel -->
+            <div class="info-panel">
+                <div>
+                    <h2>Let's Talk</h2>
+                    <p>
+                        Interested in discussing cloud architecture, FastAPI microservices, real-time WebRTC projects, or engineering collaborations? Reach out anytime!
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-row">
+                            <div class="icon-circle">📧</div>
+                            <div class="contact-text">
+                                <label>Email</label>
+                                <a href="mailto:shivadixit0123@gmail.com">shivadixit0123@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-row">
+                            <div class="icon-circle">📞</div>
+                            <div class="contact-text">
+                                <label>Phone</label>
+                                <a href="tel:+918218071428">+91-8218071428</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-row">
+                            <div class="icon-circle">📍</div>
+                            <div class="contact-text">
+                                <label>Location</label>
+                                <span>Mathura / Auraiya, UP, India</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-row">
+                            <div class="icon-circle">💼</div>
+                            <div class="contact-text">
+                                <label>LinkedIn</label>
+                                <a href="https://linkedin.com/in/shiva-dixit-488533308" target="_blank">shiva-dixit-488533308</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel Form -->
+            <form class="contact-form">
+
+                <h3>Send a Message</h3>
+                <p class="form-subtitle">Fill out the form below and I'll get back to you promptly.</p>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject / Project Area</label>
+                    <input type="text" id="subject" name="subject" placeholder="e.g., Cloud Architecture, FinTwin Demo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Describe your project, question, or inquiry..." required></textarea>
+                </div>
+
+                <button type="submit">
+                    Send Message 🚀
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

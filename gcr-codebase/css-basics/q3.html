@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Team - Shiva Dixit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .container h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #f8fafc;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .container h1 span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 290px;
+            max-width: 360px;
+            background-color: #1e293b;
+            padding: 35px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.45);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .profile {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #f8fafc;
+        }
+
+        .card h3 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #94a3b8;
+            flex-grow: 1;
+        }
+
+        /* Lead Card - Shiva Dixit */
+        .card.lead-card {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 100%);
+            border: 2px solid #38bdf8;
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .card.lead-card .profile {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+        }
+
+        .card.lead-card .lead-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+        }
+
+        .card.lead-card h3 {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 2.2rem;
+            }
+
+            .team {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header-section">
+            <h1>Engineering <span>Team</span></h1>
+            <p class="subtitle">Meet the minds building high-scale distributed systems and cloud platforms.</p>
+        </div>
+
+        <div class="team">
+
+            <!-- Team Member 1: Shiva Dixit (Lead) -->
+            <div class="card lead-card">
+                <div class="lead-badge">Team Lead</div>
+                <div class="profile">SD</div>
+
+                <h2>Shiva Dixit</h2>
+                <h3>Full Stack & Cloud Lead</h3>
+
+                <p>
+                    AWS Certified Cloud Foundations graduate from G.L.A University. Leads system architecture, microservices engineering with FastAPI, Kafka streaming, and Dockerized cloud deployments.
+                </p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="card">
+                <div class="profile">AS</div>
+
+                <h2>Aman Sharma</h2>
+                <h3>Frontend & Real-Time Specialist</h3>
+
+                <p>
+                    Specializes in building responsive web applications, HTML5 Canvas rendering, and WebRTC peer-to-peer real-time communication protocols.
+                </p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="card">
+                <div class="profile">RK</div>
+
+                <h2>Rahul Kumar</h2>
+                <h3>Backend & Data Systems</h3>
+
+                <p>
+                    Focuses on PostgreSQL database modeling, Redis in-memory caching, JWT authentication security, and scalable REST API development.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
